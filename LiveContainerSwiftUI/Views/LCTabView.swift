@@ -23,6 +23,11 @@ struct LCTabView: View {
     
     var body: some View {
         TabView(selection: $sharedModel.selectedTab) {
+            LCHomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+                .tag(LCTabIdentifier.home)
             if DataManager.shared.model.multiLCStatus != 2 {
                 LCSourcesView()
                     .tabItem {
